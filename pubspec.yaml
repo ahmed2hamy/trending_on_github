@@ -1,0 +1,48 @@
+name: news_app
+description: A new Flutter project.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.3
+
+
+  #Service Locator
+  get_it: ^7.2.0
+
+  #UI Layer
+  flutter_bloc: ^7.2.0
+
+  #Domain
+  dartz: ^0.10.0
+  equatable: ^2.0.3
+
+  #Data
+  connectivity_plus: ^1.1.0
+
+  #Data - Remote
+  firebase_core: ^1.6.0
+  cloud_firestore: ^2.5.3
+  firebase_auth: ^3.1.1
+
+  #Data - Local
+  shared_preferences: ^2.0.8
+  sqlite3_flutter_libs: ^0.5.0
+  moor_flutter: ^4.0.0
+  path_provider: ^2.0.5
+
+dev_dependencies:
+  flutter_lints: ^1.0.4
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/
