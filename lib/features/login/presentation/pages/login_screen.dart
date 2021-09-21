@@ -1,16 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_app/constants/constants.dart';
-import 'package:news_app/core/ui/helpers/app_navigator.dart';
-import 'package:news_app/core/ui/helpers/validator.dart';
-import 'package:news_app/core/ui/widgets/dialogs.dart';
-import 'package:news_app/features/login/presentation/manager/login_cubit.dart';
-import 'package:news_app/injection_container.dart';
+import 'package:trending_on_github/constants/constants.dart';
+import 'package:trending_on_github/core/ui/helpers/app_navigator.dart';
+import 'package:trending_on_github/core/ui/helpers/validator.dart';
+import 'package:trending_on_github/core/ui/widgets/dialogs.dart';
+import 'package:trending_on_github/features/home/presentation/pages/home_screen.dart';
+import 'package:trending_on_github/features/login/presentation/manager/login_cubit.dart';
+import 'package:trending_on_github/injection_container.dart';
 
 class LoginScreen extends StatefulWidget {
-  static const String id = 'login_screen';
-
   const LoginScreen({Key? key}) : super(key: key);
 
   @override
@@ -18,31 +17,20 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  late User _currentUser;
   final _formKey = GlobalKey<FormState>();
   bool _obscureText = true;
   String _emailAddress = "";
   String _password = "";
 
   @override
-  void initState() {
-    super.initState();
-    context.read<LoginCubit>().loginCurrentUser();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return BlocListener<LoginCubit, LoginState>(
       bloc: sl<LoginCubit>(),
       listener: (_, state) {
-        if (state is LoginCurrentUserState) {
-          _currentUser = state.user;
-          AppNavigator.pushReplacement(context, widget: Container());
-        } else if (state is LoginWithEmailAndPasswordState) {
+        if (state is LoginLoadedState) {
           final User? user = state.userCredential.user;
           if (user != null) {
-            _currentUser = user;
-            AppNavigator.pushReplacement(context, widget: Container());
+            AppNavigator.pushReplacement(context, widget: const HomeScreen());
           }
         } else if (state is LoginErrorState) {
           Dialogs.buildSnackBar(context, state.message);
@@ -111,7 +99,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       child: state is LoginLoadingState
                           ? const CircularProgressIndicator.adaptive()
-                          : const Text(Strings.login),
+                          : const Text(
+                              Strings.login,
+                              style: kWhiteTextStyle,
+                            ),
                       onPressed: state is LoginLoadingState
                           ? null
                           : () async {

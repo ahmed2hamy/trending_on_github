@@ -1,22 +1,23 @@
-import 'package:news_app/constants/constants.dart';
+import 'package:trending_on_github/constants/constants.dart';
 
 class Validator {
-  static dynamic validateEmail(String text) {
-    return text.isEmpty ? Strings.validateEmailMessage : null;
+  static dynamic validateEmail(String email) {
+    return email.isEmpty ? Strings.validateEmailMessage : null;
+    // return EmailValidator.validate(email) ? Strings.validateEmailMessage : null;
   }
 
-  static dynamic validatePassword(String text) {
-    if (text.isEmpty) {
+  static dynamic validatePassword(String password) {
+    if (password.isEmpty) {
       return Strings.validatePasswordMessage;
     } else {
-      if (text.length < 6) {
+      if (password.length < 6) {
         return Strings.validatePasswordMessage;
       } else {
         return null;
       }
       // String pattern = r'^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}$';
       // RegExp exp = RegExp(pattern);
-      // if (!exp.hasMatch(text)) {
+      // if (!exp.hasMatch(password)) {
       //   return Strings.validatePasswordMessage;
       // } else {
       //   return null;

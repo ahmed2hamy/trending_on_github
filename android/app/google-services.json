@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:473144300902:android:cc91da4df9af8e1ae624a7",
         "android_client_info": {
-          "package_name": "com.example.news_app"
+          "package_name": "com.example.trending_on_github"
         }
       },
       "oauth_client": [

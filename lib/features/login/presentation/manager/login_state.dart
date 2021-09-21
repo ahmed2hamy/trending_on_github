@@ -14,19 +14,10 @@ class LoginLoadingState extends LoginState {
   List<Object> get props => [];
 }
 
-class LoginCurrentUserState extends LoginState {
-  final User user;
-
-  const LoginCurrentUserState(this.user);
-
-  @override
-  List<Object> get props => [user];
-}
-
-class LoginWithEmailAndPasswordState extends LoginState {
+class LoginLoadedState extends LoginState {
   final UserCredential userCredential;
 
-  const LoginWithEmailAndPasswordState(this.userCredential);
+  const LoginLoadedState(this.userCredential);
 
   @override
   List<Object> get props => [userCredential];

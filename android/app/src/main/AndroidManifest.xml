@@ -1,9 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.news_app">
+    package="com.example.trending_on_github">
 
     <application
         android:icon="@mipmap/ic_launcher"
-        android:label="news_app"
+        android:label="Trending On Github"
         android:usesCleartextTraffic="true">
         <activity
             android:name=".MainActivity"

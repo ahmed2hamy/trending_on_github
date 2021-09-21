@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/constants/constants.dart';
+import 'package:trending_on_github/constants/constants.dart';
 
 class Dialogs {
   static buildSnackBar(
@@ -8,7 +8,7 @@ class Dialogs {
     int duration = 3,
   }) {
     final SnackBar snackBar = SnackBar(
-      content: Text(text ?? Strings.DEFAULT_ERROR_MESSAGE),
+      content: Text(text ?? Strings.defaultErrorMessage),
       duration: Duration(seconds: duration),
     );
 

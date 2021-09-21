@@ -1,21 +1,23 @@
 part of 'constants.dart';
 
-const kTitleText = TextStyle(
+const TextStyle kWhiteTextStyle = TextStyle(
   color: Colors.white,
-  fontWeight: FontWeight.w700,
-  fontSize: 46,
+);
+const TextStyle kTitleWhiteTextStyle = TextStyle(
+  color: Colors.white,
+  fontWeight: FontWeight.bold,
+  fontSize: 18,
 );
 
-const kBodyText = TextStyle(
-  color: Colors.white,
-  fontWeight: FontWeight.w300,
-  fontSize: 24,
+const TextStyle kTitleBlackTextStyle = TextStyle(
+  fontWeight: FontWeight.bold,
+  fontSize: 18,
 );
 
-const kHeadText = TextStyle(
-  color: Colors.lightBlueAccent,
-  fontWeight: FontWeight.w700,
-  fontSize: 30,
+const TextStyle kTitlePrimaryColorTextStyle = TextStyle(
+  color: kPrimaryColor,
+  fontWeight: FontWeight.bold,
+  fontSize: 18,
 );
 
 const kTextInputDecoration = InputDecoration(
@@ -24,11 +26,11 @@ const kTextInputDecoration = InputDecoration(
     borderRadius: BorderRadius.all(Radius.circular(32.0)),
   ),
   enabledBorder: OutlineInputBorder(
-    borderSide: BorderSide(color: Colors.lightBlueAccent, width: 1.0),
+    borderSide: BorderSide(width: 1.0),
     borderRadius: BorderRadius.all(Radius.circular(32.0)),
   ),
   focusedBorder: OutlineInputBorder(
-    borderSide: BorderSide(color: Colors.lightBlueAccent, width: 2.0),
+    borderSide: BorderSide(width: 2.0),
     borderRadius: BorderRadius.all(Radius.circular(32.0)),
   ),
 );

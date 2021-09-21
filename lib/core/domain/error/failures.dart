@@ -1,9 +1,10 @@
 import 'package:equatable/equatable.dart';
+import 'package:trending_on_github/constants/constants.dart';
 
 abstract class Failure extends Equatable {
-  final String? message;
+  final String message;
 
-  const Failure({this.message});
+  const Failure({required this.message});
 
   @override
   List<Object> get props => [];
@@ -11,9 +12,11 @@ abstract class Failure extends Equatable {
 
 // General failures
 class ServerFailure extends Failure {
-  const ServerFailure({String? message}) : super(message: message);
+  const ServerFailure({String? message})
+      : super(message: message ?? Strings.defaultErrorMessage);
 }
 
 class CacheFailure extends Failure {
-  const CacheFailure({String? message}) : super(message: message);
+  const CacheFailure({String? message})
+      : super(message: message ?? Strings.defaultErrorMessage);
 }
