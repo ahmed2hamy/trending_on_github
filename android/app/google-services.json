@@ -9,6 +9,35 @@
       "client_info": {
         "mobilesdk_app_id": "1:473144300902:android:cc91da4df9af8e1ae624a7",
         "android_client_info": {
+          "package_name": "com.example.news_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "473144300902-mnv11gbmgaermjt2uhmr0ac6ljnhvcj6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIcK0xTgVO9qkrLrg6z6723xQ0gqelG4w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "473144300902-mnv11gbmgaermjt2uhmr0ac6ljnhvcj6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:473144300902:android:b454f8caf2de282ae624a7",
+        "android_client_info": {
           "package_name": "com.example.trending_on_github"
         }
       },
