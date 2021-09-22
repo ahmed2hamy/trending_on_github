@@ -4,10 +4,8 @@ import 'package:trending_on_github/constants/constants.dart';
 import 'package:trending_on_github/core/ui/helpers/app_navigator.dart';
 import 'package:trending_on_github/core/ui/helpers/screen_info.dart';
 import 'package:trending_on_github/features/home/presentation/pages/home_screen.dart';
-import 'package:trending_on_github/features/login/presentation/manager/login_cubit.dart';
 import 'package:trending_on_github/features/login/presentation/pages/login_screen.dart';
 import 'package:trending_on_github/features/splash/presentation/manager/splash_cubit.dart';
-import 'package:trending_on_github/injection_container.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -18,17 +16,16 @@ class SplashScreen extends StatelessWidget {
     return BlocListener<SplashCubit, SplashState>(
       listener: (con, state) {
         if (state is SplashLoadedState) {
-          AppNavigator.pushReplacement(
-            context,
-            widget: const HomeScreen(),
-          );
+          if (state.user.refreshToken != null) {
+            AppNavigator.pushReplacement(
+              context,
+              widget: const HomeScreen(),
+            );
+          }
         } else if (state is SplashErrorState) {
           AppNavigator.pushReplacement(
             context,
-            widget: BlocProvider<LoginCubit>(
-              create: (_) => sl(),
-              child: const LoginScreen(),
-            ),
+            widget: const LoginScreen(),
           );
         }
       },

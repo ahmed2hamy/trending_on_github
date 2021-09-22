@@ -9,9 +9,7 @@ import 'package:trending_on_github/features/home/data/models/github_repo_model.d
 import 'package:trending_on_github/features/home/presentation/manager/trending_repos_cubit/trending_repos_cubit.dart';
 import 'package:trending_on_github/features/home/presentation/manager/trending_repos_cubit/trending_repos_state.dart';
 import 'package:trending_on_github/features/home/presentation/manager/trending_repos_scroll_to_top_cubit/trending_repos_scroll_to_top_cubit.dart';
-import 'package:trending_on_github/features/login/presentation/manager/login_cubit.dart';
 import 'package:trending_on_github/features/login/presentation/pages/login_screen.dart';
-import 'package:trending_on_github/injection_container.dart';
 
 class TrendingPage extends StatefulWidget {
   const TrendingPage({Key? key}) : super(key: key);
@@ -30,8 +28,12 @@ class _TrendingPageState extends State<TrendingPage>
   bool get wantKeepAlive => true;
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
+  void initState() {
+    super.initState();
+    _initWidgetState();
+  }
+
+  void _initWidgetState() {
     _scrollController.addListener(_scrollListener);
     _getTrendingRepos();
   }
@@ -101,10 +103,7 @@ class _TrendingPageState extends State<TrendingPage>
         if (state is UserLogoutState) {
           AppNavigator.pushReplacement(
             context,
-            widget: BlocProvider<LoginCubit>(
-              create: (_) => sl(),
-              child: const LoginScreen(),
-            ),
+            widget: const LoginScreen(),
           );
         }
       },

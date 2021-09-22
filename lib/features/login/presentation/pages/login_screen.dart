@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trending_on_github/constants/constants.dart';
@@ -28,8 +27,8 @@ class _LoginScreenState extends State<LoginScreen> {
       bloc: sl<LoginCubit>(),
       listener: (_, state) {
         if (state is LoginLoadedState) {
-          final User? user = state.userCredential.user;
-          if (user != null) {
+          final String? token = state.userCredential.user?.refreshToken;
+          if (token != null) {
             AppNavigator.pushReplacement(context, widget: const HomeScreen());
           }
         } else if (state is LoginErrorState) {

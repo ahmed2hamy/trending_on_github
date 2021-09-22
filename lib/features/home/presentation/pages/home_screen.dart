@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trending_on_github/constants/constants.dart';
-import 'package:trending_on_github/features/home/presentation/manager/trending_repos_cubit/trending_repos_cubit.dart';
-import 'package:trending_on_github/features/home/presentation/manager/trending_repos_scroll_to_top_cubit/trending_repos_scroll_to_top_cubit.dart';
 import 'package:trending_on_github/features/home/presentation/pages/settings_page.dart';
 import 'package:trending_on_github/features/home/presentation/pages/trending_page.dart';
 import 'package:trending_on_github/features/home/presentation/widgets/navigation_bar_item.dart';
-import 'package:trending_on_github/injection_container.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -50,20 +46,10 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<TrendingReposCubit>(
-          create: (_) => sl(),
-        ),
-        BlocProvider<TrendingReposScrollToTopCubit>(
-          create: (_) => sl(),
-        ),
-      ],
-      child: Scaffold(
-        appBar: _buildAppBar(),
-        body: _buildBody(),
-        bottomNavigationBar: _bottomNavigationBar(),
-      ),
+    return Scaffold(
+      appBar: _buildAppBar(),
+      body: _buildBody(),
+      bottomNavigationBar: _bottomNavigationBar(),
     );
   }
 
